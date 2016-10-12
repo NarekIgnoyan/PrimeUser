@@ -1,10 +1,10 @@
-package com.example.narek.primeuserloginregister.RetrofitJackson;
+package com.example.narek.primeuserloginregister.Common.RetrofitJackson;
 
 import android.app.Application;
 
 import java.util.concurrent.TimeUnit;
 
-import  com.example.narek.primeuserloginregister.network.JacksonConverterFactory;
+import  com.example.narek.primeuserloginregister.Common.network.JacksonConverterFactory;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;

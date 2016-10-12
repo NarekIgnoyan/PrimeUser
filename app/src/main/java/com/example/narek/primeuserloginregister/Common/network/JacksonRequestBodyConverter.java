@@ -1,4 +1,4 @@
-package com.example.narek.primeuserloginregister.network;
+package com.example.narek.primeuserloginregister.Common.network;
 
 import com.fasterxml.jackson.databind.ObjectWriter;
 

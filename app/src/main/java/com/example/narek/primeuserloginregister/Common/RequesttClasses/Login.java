@@ -1,8 +1,6 @@
-package com.example.narek.primeuserloginregister.RequesttClasses;
+package com.example.narek.primeuserloginregister.Common.RequesttClasses;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import java.util.List;
 
 
 /**

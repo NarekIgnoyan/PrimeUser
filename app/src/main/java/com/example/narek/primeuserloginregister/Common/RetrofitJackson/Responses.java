@@ -1,4 +1,4 @@
-package com.example.narek.primeuserloginregister.RetrofitJackson;
+package com.example.narek.primeuserloginregister.Common.RetrofitJackson;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

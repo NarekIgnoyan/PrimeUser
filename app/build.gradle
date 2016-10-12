@@ -17,19 +17,26 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+    }
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:24.0.0'
-    compile 'com.android.support:design:24.0.0'
+    compile 'com.android.support:appcompat-v7:24.2.1'
+    compile 'com.android.support:design:24.2.1'
     compile 'com.romainpiel.shimmer:library:1.4.0@aar'
     compile 'com.squareup.retrofit2:retrofit:2.0.0'
     compile 'com.squareup.okhttp3:logging-interceptor:3.2.0'
     compile 'com.fasterxml.jackson.core:jackson-databind:2.7.3'
     compile 'com.fasterxml.jackson.core:jackson-annotations:2.7.3'
-
+    compile 'com.android.support:cardview-v7:24.2.1'
+    compile 'com.android.support:recyclerview-v7:24.2.1'
+    compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'cn.pedant.sweetalert:library:1.3'
 
 }

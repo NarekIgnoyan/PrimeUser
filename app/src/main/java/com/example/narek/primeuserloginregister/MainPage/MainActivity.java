@@ -4,36 +4,27 @@ package com.example.narek.primeuserloginregister.MainPage;
 
 import android.animation.Animator;
 import android.app.Activity;
-import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.view.ContextThemeWrapper;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.narek.primeuserloginregister.AfterLogin;
 import com.example.narek.primeuserloginregister.CustomSpeenerAdapter;
-import com.example.narek.primeuserloginregister.PasswordForget;
+import com.example.narek.primeuserloginregister.Home.HomeActivity;
 import com.example.narek.primeuserloginregister.R;
-import com.example.narek.primeuserloginregister.RequesttClasses.Login;
-import com.example.narek.primeuserloginregister.RetrofitJackson.IPC_Application;
-import com.example.narek.primeuserloginregister.RetrofitJackson.Responses;
+import com.example.narek.primeuserloginregister.Common.RequesttClasses.Login;
+import com.example.narek.primeuserloginregister.Common.RetrofitJackson.IPC_Application;
+import com.example.narek.primeuserloginregister.Common.RetrofitJackson.Responses;
 import com.romainpiel.shimmer.Shimmer;
 import com.romainpiel.shimmer.ShimmerTextView;
 
-import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -209,18 +200,18 @@ public class MainActivity extends Activity implements AdapterView.OnItemSelected
     }
 
     public void login(){
-        IPC_Application.i().w().login("login","nareksench@yandex.ru","qw123456").enqueue(new Callback<Responses<List<Login>>>() {
+        IPC_Application.i().w().login("login","nareksench@yandex.ru","qw123456").enqueue(new Callback<Responses<Login>>() {
 
             @Override
-            public void onResponse(Call<Responses<List<Login>>> call, retrofit2.Response<Responses<List<Login>>> response) {
+            public void onResponse(Call<Responses<Login>> call, retrofit2.Response<Responses<Login>> response) {
                 if(response.code() == 200){
 
                     if (response.body().status==200){
                         String miban = response.body().message;
                         Toast.makeText(MainActivity.this, miban, Toast.LENGTH_SHORT).show();
                         Log.d("req", "onResponse: ");
-//                        Intent show = new Intent(MainActivity.this, AfterLogin.class);
-//                        startActivity(show);
+                        Intent show = new Intent(MainActivity.this, HomeActivity.class);
+                        startActivity(show);
                     }
 
 
@@ -234,17 +225,22 @@ public class MainActivity extends Activity implements AdapterView.OnItemSelected
 
 
             @Override
-            public void onFailure(Call<Responses<List<Login>>> call, Throwable t) {
+            public void onFailure(Call<Responses<Login>> call, Throwable t) {
 
-                if(t.getMessage().startsWith("Unable to resolve host")){
-                   Toast.makeText(MainActivity.this,"No Internet" , Toast.LENGTH_LONG).show();
-                }
-                else if(t.getMessage().startsWith("Can not deserialize")){
-                    Toast.makeText(MainActivity.this,"Wrong Username or Password" , Toast.LENGTH_LONG).show();
-                }
-                else{
-                    Toast.makeText(MainActivity.this,"Somethingg went wrong" , Toast.LENGTH_LONG).show();
-                }
+                //BDZA ES TAKID GRACNERY SXAL LOGIKAYA
+
+//                if(t.getMessage().startsWith("Unable to resolve host")){
+//                   Toast.makeText(MainActivity.this,"No Internet" , Toast.LENGTH_LONG).show();
+//                }
+//                else if(t.getMessage().startsWith("Can not deserialize")){
+//                    Toast.makeText(MainActivity.this,"Wrong Username or Password!!!!!!" , Toast.LENGTH_LONG).show();
+//                }
+//                else{
+//                    Toast.makeText(MainActivity.this,"Somethingg went wrong" , Toast.LENGTH_LONG).show();
+//                }
+
+                Toast.makeText(MainActivity.this, t.getMessage() + " : " + t.getCause(), Toast.LENGTH_SHORT).show();
+                Log.d("MYPROJ", "onFailure: " + t.getMessage() + " : " + t.getCause());
 
             }
         });
