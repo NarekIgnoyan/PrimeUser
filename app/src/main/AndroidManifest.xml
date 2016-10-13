@@ -26,7 +26,8 @@
         <activity
             android:name=".Home.HomeActivity"
             android:label="@string/title_activity_home"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
+        <activity android:name=".Home.Fragments.NewsFragment.NewsItem.NewsDetails"></activity>
     </application>
 
 </manifest>
