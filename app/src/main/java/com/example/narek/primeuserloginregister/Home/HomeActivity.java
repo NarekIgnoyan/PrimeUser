@@ -26,7 +26,7 @@ public class HomeActivity extends AppCompatActivity
     private ViewPager pager;
     private ViewPagerAdapter adapter;
     private SlidingTabLayout tabs;
-    private CharSequence Titles[]={"News","Transactions","Settings"};
+    private CharSequence Titles[]={"News","Card","Transactions"};
     private int Numboftabs =3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +60,7 @@ public class HomeActivity extends AppCompatActivity
     public void setViews() {
         pager.setAdapter(adapter);
         tabs.setDistributeEvenly(false);
-        tabs.setTabWeights(new int[]{2,3,2});
+        tabs.setTabWeights(new int[]{2,2,3});
         tabs.setCustomTabColorizer(new SlidingTabLayout.TabColorizer() {
             @Override
             public int getIndicatorColor(int position) {

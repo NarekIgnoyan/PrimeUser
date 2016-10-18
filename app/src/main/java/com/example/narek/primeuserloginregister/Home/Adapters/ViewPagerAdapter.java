@@ -37,13 +37,15 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
         }
         if(position == 1){
 
-            TransactionFragment payment = new TransactionFragment();
-            return payment;
+
+            SettingsFragment settings = new SettingsFragment();
+            return settings;
+
         }
         else
         {
-            SettingsFragment settings = new SettingsFragment();
-            return settings;
+            TransactionFragment payment = new TransactionFragment();
+            return payment;
         }
 
 

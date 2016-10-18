@@ -4,7 +4,9 @@ package com.example.narek.primeuserloginregister.MainPage;
 
 import android.animation.Animator;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -40,6 +42,10 @@ public class MainActivity extends Activity implements AdapterView.OnItemSelected
     private EditText dateText,editMail,editPass,editRePass,editName,editLName,editPhone,editAddress,editPostalCode,editCountry;
     private Shimmer shimmer;
     public static int SuccessToast = 0;
+    private SharedPreferences pref_token,pref_card;
+    private SharedPreferences.Editor editor_token,editor_card;
+    public  static final String  PREFERENCE_TOKEN = "com.prime.primeuser.TOKEN";
+    public  static final String  PREFERENCE_CARD_DETAILS = "com.prime.primeuser.CARD";
 
     String[] countryNames={"Armenian","Russian","English"};
     int flags[] = {R.drawable.am, R.drawable.ru,R.drawable.us};
@@ -51,7 +57,7 @@ public class MainActivity extends Activity implements AdapterView.OnItemSelected
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        managePreferences();
         initLayouts();
         initEditTexts();
         initTextFields();
@@ -117,6 +123,14 @@ public class MainActivity extends Activity implements AdapterView.OnItemSelected
 
 
 
+    }
+
+    private void managePreferences(){
+
+        pref_token = getApplicationContext().getSharedPreferences(PREFERENCE_TOKEN, Context.MODE_PRIVATE);
+        pref_card = getApplicationContext().getSharedPreferences(PREFERENCE_CARD_DETAILS, Context.MODE_PRIVATE);
+        editor_token = pref_token.edit();
+        editor_card = pref_card.edit();
     }
 
     public void initLayouts(){
@@ -210,6 +224,11 @@ public class MainActivity extends Activity implements AdapterView.OnItemSelected
                         String miban = response.body().message;
                         Toast.makeText(MainActivity.this, miban, Toast.LENGTH_SHORT).show();
                         Log.d("req", "onResponse: ");
+                        editor_token.putString("token",response.body().content.token);
+                        editor_card.putString("cardNumber",response.body().content.primeCardNumber);
+                        editor_card.putString("userName",String.valueOf(response.body().content.firstName+" "+response.body().content.lastName));
+                        editor_card.commit();
+                        editor_token.commit();
                         Intent show = new Intent(MainActivity.this, HomeActivity.class);
                         startActivity(show);
                     }
