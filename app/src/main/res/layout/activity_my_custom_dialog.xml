@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
 
 
     android:background="@drawable/miban"
@@ -20,11 +21,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Please enter your email"
-            android:id="@+id/textView3"
+            android:id="@+id/dialogTitle"
             android:layout_gravity="center"
             android:textColor="@color/abc_btn_colored_borderless_text_material"
-            android:layout_marginTop="10dp" />
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="Comfirmation code was sent" />
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/myTittle"
+            android:gravity="center"
+            android:textSize="22sp"
+            android:textColor="#000000"
+            android:layout_gravity="center" />
 
         <EditText
             android:layout_width="200dp"
@@ -47,28 +59,28 @@
 
             <Button
                 android:id="@+id/cancel"
-                android:layout_width="200dp"
+                android:layout_width="wrap_content"
                 android:layout_height="70dp"
                 android:text="Cancel"
                 android:layout_gravity="center_horizontal"
-                android:background="@null"
+                android:background="@drawable/buttoneffect2"
                 android:textSize="20sp"
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
-                android:layout_marginRight="20dp"
+                android:textAllCaps="false"
                 android:textColor="#f17e7e" />
 
             <Button
                 android:id="@+id/submit"
-                android:layout_width="200dp"
+                android:layout_width="wrap_content"
                 android:layout_height="70dp"
                 android:text="Submit"
                 android:layout_gravity="center_horizontal"
-                android:background="@null"
+                android:background="@drawable/buttoneffect2"
                 android:textSize="20sp"
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
-                android:layout_marginLeft="20dp"
+                android:textAllCaps="false"
                 android:textColor="#a2d68a" />
         </LinearLayout>
 

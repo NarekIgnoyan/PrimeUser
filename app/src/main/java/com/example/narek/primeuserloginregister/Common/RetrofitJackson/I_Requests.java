@@ -7,6 +7,8 @@ import android.support.annotation.Nullable;
 
 import com.example.narek.primeuserloginregister.Common.RequesttClasses.Login;
 import com.example.narek.primeuserloginregister.Common.RequesttClasses.News;
+import com.example.narek.primeuserloginregister.Common.RequesttClasses.Registration;
+import com.example.narek.primeuserloginregister.Common.RequesttClasses.RegistrationComfirm;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +29,34 @@ public interface I_Requests {
             @Field("mail") String userMail,
             @Field("password") String password
     );
+
+    @FormUrlEncoded
+    @POST("/LoginRegistration")
+    Call<Responses<Registration>> register(
+            @Field("requestName") String requestName,
+            @Field("mail") String userMail,
+            @Field("password") String password,
+            @Field("firstName") String firstName,
+            @Field("lastName") String lastName,
+            @Field("sex") String sex,
+            @Field("phoneNumber") String phoneNumber,
+            @Field("birthday") String birthday,
+            @Field("postalCode") String postalCode,
+            @Field("adress") String adress,
+            @Field("country") String country,
+            @Field("language") String language
+
+            );
+
+    @FormUrlEncoded
+    @POST("/LoginRegistration")
+    Call<Responses<RegistrationComfirm>> registerComfirm(
+            @Field("requestName") String requestName,
+            @Field("mail") String userMail,
+            @Field("confirmCode") String confirmCode
+
+    );
+
 
 
     @FormUrlEncoded
