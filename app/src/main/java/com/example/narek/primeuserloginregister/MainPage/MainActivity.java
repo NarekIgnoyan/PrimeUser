@@ -43,7 +43,7 @@ import retrofit2.Response;
 
 
 public class MainActivity extends Activity implements AdapterView.OnItemSelectedListener  {
-    private TextView loginText,registerText,forgotText;
+    private Button loginText,registerText,forgotText;
     private ShimmerTextView myShimmerTextView;
     private int myColorValue;
     private LinearLayout loginLayout,registerLayout,mainLayout;
@@ -124,12 +124,14 @@ public class MainActivity extends Activity implements AdapterView.OnItemSelected
 
     public void loginSuccess(View view){
 
-        if (!validate(logEditUserName.getEditText().getText().toString())){
-            logEditUserName.getEditText().setError("** Enter valid Email");
-            logEditUserName.getEditText().requestFocus();
-        }if (validate(logEditUserName.getEditText().getText().toString())){
-            login(logEditUserName.getEditText().getText().toString(),logEditPassword.getEditText().getText().toString());
-        }
+//        if (!validate(logEditUserName.getEditText().getText().toString())){
+//            logEditUserName.getEditText().setError("** Enter valid Email");
+//            logEditUserName.getEditText().requestFocus();
+//        }if (validate(logEditUserName.getEditText().getText().toString())){
+            //login(logEditUserName.getEditText().getText().toString(),logEditPassword.getEditText().getText().toString());
+            login("na.ignoyan@yandex.ru","Prime2010");
+
+       // }
 
 
     }
@@ -236,9 +238,9 @@ public class MainActivity extends Activity implements AdapterView.OnItemSelected
 
 
     public void initTextFields(){
-        loginText = (TextView)findViewById(R.id.logText) ;
-        registerText = (TextView)findViewById(R.id.regText) ;
-        forgotText = (TextView)findViewById(R.id.forgot);
+        loginText = (Button) findViewById(R.id.myLogButton) ;
+        registerText = (Button) findViewById(R.id.myRegButton) ;
+        forgotText = (Button) findViewById(R.id.myForgotButton);
     }
 
     public void initButtons(){

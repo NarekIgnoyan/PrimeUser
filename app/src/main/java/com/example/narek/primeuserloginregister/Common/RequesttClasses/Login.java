@@ -56,6 +56,9 @@ public class Login {
     @JsonProperty("firstName")
     public String firstName;
 
+    @JsonProperty("primeCardCode")
+    public String primeCardCode;
+
 
 
 }

@@ -50,6 +50,18 @@
                     android:layout_height="match_parent"
                     android:layout_weight="2.2">
 
+                    <Button
+                        android:text="Login"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textAllCaps="false"
+                        android:layout_weight="1"
+                        android:textSize="25sp"
+                        android:id="@+id/myLogButton"
+                        android:background="#00FFFFFF"
+                        android:textColor="#1cbe9e"
+                        android:onClick="loginClick" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
@@ -61,7 +73,8 @@
                         android:textColor="#1cbe9e"
                         android:textSize="25sp"
                         android:textStyle="bold"
-                        android:onClick="loginClick" />
+                        android:onClick="loginClick"
+                        android:visibility="gone" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -69,6 +82,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="2">
+
+                    <Button
+                        android:text="Register"
+                        android:textAllCaps="false"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/myRegButton"
+                        android:layout_weight="1"
+                        android:background="#00FFFFFF"
+                        android:textSize="25sp"
+                        android:textColor="#ffffff"
+                        android:onClick="registerClick" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -83,7 +108,8 @@
                         android:textStyle="bold"
                         android:onClick="registerClick"
                         android:scaleX="1"
-                        android:singleLine="true" />
+                        android:singleLine="true"
+                        android:visibility="gone" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -167,6 +193,20 @@
                     android:layout_marginLeft="50dp"
                     android:layout_marginRight="50dp" />
 
+                <Button
+                    android:text="Forgot Password?"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/myForgotButton"
+                    android:textAllCaps="false"
+                    android:layout_weight="1"
+                    android:background="#00FFFFFF"
+                    android:textColor="@color/material_deep_teal_500"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp"
+                    android:layout_marginTop="15dp"
+                    android:onClick="forgotButton" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
@@ -181,7 +221,8 @@
                     android:layout_marginTop="20dp"
                     android:textSize="16sp"
                     android:textColor="@color/material_deep_teal_500"
-                    android:onClick="forgotButton" />
+                    android:onClick="forgotButton"
+                    android:visibility="gone" />
             </LinearLayout>
 
         </LinearLayout>

@@ -7,29 +7,110 @@
     android:layout_height="match_parent"
     tools:context=".Home.HomeActivity"
     android:orientation="vertical"
-    android:background="#02000d"
-    android:weightSum="2">
+    android:background="#2d3f51">
 
-    <android.support.v7.widget.RecyclerView
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/recIn"
-        android:layout_gravity="center_vertical"
-        android:layout_marginTop="125dp"
-        android:foregroundGravity="center_vertical"
-        android:layout_weight="0.80"
-        android:background="#fff" />
+        android:layout_weight="1.4"
+        android:layout_marginTop="120dp">
 
-    <android.support.v7.widget.RecyclerView
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#2d3f51">
+
+            <TextView
+                android:text="Balance :  4600"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/balText"
+                android:layout_gravity="center"
+                android:textSize="30sp"
+                android:textStyle="normal|bold"
+                android:textColor="#ffffff"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.25"
+            android:background="#354a5f">
+
+            <Button
+                android:text="In"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:textAllCaps="false"
+                android:id="@+id/inButton"
+                android:layout_weight="1.5"
+                android:textColor="#1cbe9e"
+                android:textSize="25sp"
+                android:textStyle="normal|bold"
+                android:gravity="right|center" />
+
+            <TextView
+                android:text="|"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/textView4"
+                android:layout_weight="1.6"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="25sp"
+                android:textColor="@color/cardview_light_background"
+                android:textStyle="bold" />
+
+            <Button
+                android:text="Out"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:textAllCaps="false"
+                android:id="@+id/outButton"
+                android:layout_weight="1"
+                android:textColor="#ffffff"
+                android:textSize="25sp"
+                android:gravity="left|center_vertical|center"
+                android:textStyle="normal|bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/recOut"
-        android:layout_gravity="center_vertical"
-        android:layout_marginTop="20dp"
-        android:foregroundGravity="center_vertical"
-        android:layout_weight="1.2"
-        android:background="#fff" />
+        android:layout_weight="1"
+        android:background="@drawable/layouteffect1"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="5dp">
 
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/recIn"
+            android:layout_gravity="center_vertical"
+            android:foregroundGravity="center_vertical"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="3dp" />
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/recOut"
+            android:layout_gravity="center_vertical"
+            android:foregroundGravity="center_vertical"
+            android:visibility="gone" />
+    </LinearLayout>
 
 
 </LinearLayout>

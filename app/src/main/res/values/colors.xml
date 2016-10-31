@@ -7,5 +7,5 @@
     <color name="ColorPrimary">#e62117</color>
     <color name="ColorPrimaryDark">#c31c13</color>
     <color name="tabsScrollColor">#000</color>
-    <color name="primeBlue">#FF278FFF</color>
+    <color name="primeBlue">#278fff</color>
 </resources>

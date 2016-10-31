@@ -5,7 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.example.narek.primeuserloginregister.Home.Fragments.NewsFragment.NewsFragment;
-import com.example.narek.primeuserloginregister.Home.Fragments.TransactionFragment;
+import com.example.narek.primeuserloginregister.Home.Fragments.TransactionsFragment.TransactionFragment;
 import com.example.narek.primeuserloginregister.Home.Fragments.SettingsFragment;
 
 /**

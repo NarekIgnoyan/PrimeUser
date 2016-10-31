@@ -11,7 +11,7 @@ public class NewsItem {
     @JsonProperty("id")
     public int id;
 
-    @JsonProperty("tittle_en")
+    @JsonProperty("title_en")
     public String tittle_en;
 
     @JsonProperty("description_en")
@@ -20,7 +20,7 @@ public class NewsItem {
     @JsonProperty("photo_url")
     public String photo_url;
 
-    @JsonProperty("tittle_ru")
+    @JsonProperty("title_ru")
     public String tittle_ru;
 
     @JsonProperty("description_am")
@@ -35,7 +35,9 @@ public class NewsItem {
     @JsonProperty("description_ru")
     public String description_ru;
 
-    @JsonProperty("tittle_am")
+    @JsonProperty("title_am")
     public String tittle_am;
+
+
 
 }
