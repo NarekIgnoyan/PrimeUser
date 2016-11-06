@@ -18,12 +18,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.narek.primeuserloginregister.Common.RequesttClasses.ForgotPass;
 import com.example.narek.primeuserloginregister.Common.RequesttClasses.RegistrationComfirm;
 import com.example.narek.primeuserloginregister.Common.RetrofitJackson.IPC_Application;
 import com.example.narek.primeuserloginregister.Common.RetrofitJackson.Responses;
 import com.example.narek.primeuserloginregister.PasswordForget;
 import com.example.narek.primeuserloginregister.R;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -119,8 +121,7 @@ public class MyCustomDialog extends AppCompatActivity {
 
                 }else {
 
-                    Intent intent = new Intent(context, PasswordForget.class);
-                    context.startActivity(intent);
+                    mailForgot(follower_email , context);
 
                 }
 
@@ -249,6 +250,58 @@ public class MyCustomDialog extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Responses<RegistrationComfirm>> call, Throwable t) {
+
+            }
+        });
+    }
+
+    public void mailForgot(final String mail, final Context context){
+        IPC_Application.i().w().forgot("forgotPassSendCode",mail).enqueue(new Callback<Responses<ForgotPass>>() {
+            @Override
+            public void onResponse(Call<Responses<ForgotPass>> call, Response<Responses<ForgotPass>> response) {
+                if (response.code() == 200){
+                    String responseMessege;
+                    if (response.body().status==200){
+                        responseMessege = response.body().message;
+                        if (responseMessege.equals("success")){
+                            Intent intent = new Intent(context, PasswordForget.class);
+                            intent.putExtra("comfMail",mail);
+                            context.startActivity(intent);
+                        }
+                        if (responseMessege.equals("wrong mail")){
+                            new SweetAlertDialog(context, SweetAlertDialog.WARNING_TYPE)
+                                    .setTitleText("Wrong mail")
+                                   // .setContentText("Cant find mail")
+                                    .show();
+                            // TODO: 06-Nov-16
+                        }
+
+                    }
+
+                    if (response.body().status==500){
+                        responseMessege = response.body().message;
+                        if (responseMessege.equals("sql exception")){
+                            new SweetAlertDialog(context, SweetAlertDialog.ERROR_TYPE)
+                                    .setTitleText("Sorry, try again")
+                                     .setContentText("Something goes wrong")
+                                    .show();
+                            // TODO: 06-Nov-16
+                        }
+                        if (responseMessege.equals("send Mail error")){
+                            new SweetAlertDialog(context, SweetAlertDialog.WARNING_TYPE)
+                                    .setTitleText("Sorry , try later")
+                                    .setContentText("We have problems")
+                                    .show();
+                            // TODO: 06-Nov-16
+                        }
+
+                    }
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Responses<ForgotPass>> call, Throwable t) {
 
             }
         });

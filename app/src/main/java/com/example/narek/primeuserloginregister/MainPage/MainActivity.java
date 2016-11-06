@@ -64,6 +64,7 @@ public class MainActivity extends Activity implements AdapterView.OnItemSelected
     private RadioButton radioButton;
     private String gender;
     private  Button button;
+    public static String testToken;
 
     public static String language="a";
     public static String sharedLanguage  = "";
@@ -129,7 +130,7 @@ public class MainActivity extends Activity implements AdapterView.OnItemSelected
 //            logEditUserName.getEditText().requestFocus();
 //        }if (validate(logEditUserName.getEditText().getText().toString())){
             //login(logEditUserName.getEditText().getText().toString(),logEditPassword.getEditText().getText().toString());
-            login("na.ignoyan@yandex.ru","Prime2010");
+            login("na.ignoyan@yandex.ru","Prime2009");
 
        // }
 
@@ -369,6 +370,7 @@ public class MainActivity extends Activity implements AdapterView.OnItemSelected
                         Toast.makeText(MainActivity.this, miban, Toast.LENGTH_SHORT).show();
                         Log.d("req", "onResponse: ");
                         editor_token.putString("token",response.body().content.token);
+                        testToken = response.body().content.token;
                         editor_card.putString("cardNumber",response.body().content.primeCardNumber);
                         editor_card.putString("userName",String.valueOf(response.body().content.firstName+" "+response.body().content.lastName));
                         editor_card.commit();

@@ -17,7 +17,7 @@
         android:layout_marginTop="120dp">
 
         <LinearLayout
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -32,7 +32,37 @@
                 android:textSize="30sp"
                 android:textStyle="normal|bold"
                 android:textColor="#ffffff"
-                android:gravity="center" />
+                android:gravity="center"
+                android:layout_weight="1" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ProgressBar
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/progressBar"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="5dp"
+                    android:progressDrawable="@drawable/myprogressstyle" />
+
+                <TextView
+                    android:text="0/0"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/progressText"
+                    android:layout_weight="1"
+                    android:textSize="16sp"
+                    android:textColor="@color/primeBlue"
+                    android:gravity="top|center" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -44,13 +74,13 @@
             android:background="#354a5f">
 
             <Button
-                android:text="In"
+                android:text="Bonuses"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@null"
                 android:textAllCaps="false"
                 android:id="@+id/inButton"
-                android:layout_weight="1.5"
+                android:layout_weight="1"
                 android:textColor="#1cbe9e"
                 android:textSize="25sp"
                 android:textStyle="normal|bold"
@@ -61,7 +91,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/textView4"
-                android:layout_weight="1.6"
+                android:layout_weight="1.5"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:textSize="25sp"
@@ -69,7 +99,7 @@
                 android:textStyle="bold" />
 
             <Button
-                android:text="Out"
+                android:text="Payments"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@null"
@@ -103,13 +133,6 @@
             android:layout_marginTop="3dp"
             android:layout_marginBottom="3dp" />
 
-        <android.support.v7.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/recOut"
-            android:layout_gravity="center_vertical"
-            android:foregroundGravity="center_vertical"
-            android:visibility="gone" />
     </LinearLayout>
 
 

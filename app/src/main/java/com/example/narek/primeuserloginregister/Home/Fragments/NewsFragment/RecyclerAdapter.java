@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.narek.primeuserloginregister.Common.RequesttClasses.NewsItem;
@@ -38,10 +39,12 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public ImageView mLogo;
         public TextView mTextView;
+        public LinearLayout layoutItem;
         public ViewHolder(View v) {
             super(v);
             this.mLogo = (ImageView) v.findViewById(R.id.logo);
             this.mTextView =(TextView) v.findViewById(R.id.title);
+            this.layoutItem = (LinearLayout)v.findViewById(R.id.rececleLayout);
         }
     }
 
@@ -59,7 +62,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         Picasso.with(context).load(names.get(position).logo_url).into(holder.mLogo);
         holder.mTextView.setText(names.get(position).tittle_en);
-        holder.mLogo.setOnClickListener(new View.OnClickListener() {
+        holder.layoutItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context,NewsDetails.class);

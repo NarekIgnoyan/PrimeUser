@@ -5,10 +5,12 @@ package com.example.narek.primeuserloginregister.Common.RetrofitJackson;
 
 import android.support.annotation.Nullable;
 
+import com.example.narek.primeuserloginregister.Common.RequesttClasses.ForgotPass;
 import com.example.narek.primeuserloginregister.Common.RequesttClasses.Login;
 import com.example.narek.primeuserloginregister.Common.RequesttClasses.News;
 import com.example.narek.primeuserloginregister.Common.RequesttClasses.Registration;
 import com.example.narek.primeuserloginregister.Common.RequesttClasses.RegistrationComfirm;
+import com.example.narek.primeuserloginregister.Common.RequesttClasses.Transactions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,6 +52,24 @@ public interface I_Requests {
 
     @FormUrlEncoded
     @POST("/LoginRegistration")
+    Call<Responses<ForgotPass>> forgot(
+            @Field("requestName") String requestName,
+            @Field("mail") String userMail
+
+    );
+
+    @FormUrlEncoded
+    @POST("/LoginRegistration")
+    Call<Responses<ForgotPass>> newPassSend(
+            @Field("requestName") String requestName,
+            @Field("mail") String userMail,
+            @Field("password") String newPass,
+            @Field("confirmCode") String comfirmationCode
+
+    );
+
+    @FormUrlEncoded
+    @POST("/LoginRegistration")
     Call<Responses<RegistrationComfirm>> registerComfirm(
             @Field("requestName") String requestName,
             @Field("mail") String userMail,
@@ -64,6 +84,16 @@ public interface I_Requests {
     Call<Responses<News>> news(
             @Field("requestName") String requestName,
             @Field("date") @Nullable String  date
+
+    );
+
+    @FormUrlEncoded
+    @POST("/UserService")
+    Call<Responses<Transactions>> userPayments(
+            @Field("requestName") String requestName,
+            @Field("token") String  token,
+            @Field("date") @Nullable String  date
+
 
     );
 
